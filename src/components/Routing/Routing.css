@@ -1,0 +1,24 @@
+.flex-container{
+    display: flex;
+}
+.side-bar{
+    width: 15%;
+    background-color: skyblue;
+    height: 92vh;
+}
+.right-side{
+    width: 85%;
+}
+.side-bar div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    height: 100%;
+   
+}
+.side-bar div a{
+    font-size: 22px;
+    cursor: pointer;
+    color: black;
+}
