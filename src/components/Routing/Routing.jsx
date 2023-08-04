@@ -1,23 +1,26 @@
-import React from 'react'
-import './Routing.css'
-import { Link } from 'react-router-dom'
+import React from "react";
+import "./Routing.css";
+import { Link, Outlet } from "react-router-dom";
 const Routing = () => {
   return (
-    <div className='flex-container'>
-      
-    <div className='side-bar'>
-<div>
-  <Link to='/routing/electronics'>Electronics</Link>
-  <a>Textile</a>
-  <a>Jwellery</a>
-  <a>Plastic</a>
-</div>
-    </div>
-    <div className='right-side'>
-      <h1>Routing</h1>
-    </div>
-    </div>
-  )
-}
+    <div className="flex-container">
+      <div className="side-bar">
+        <div>
+          <Link to="electronics">Electronics</Link>
 
-export default Routing
+          <Link to="jwellery">Jwellery</Link>
+          <Link to="textile">Textile</Link>
+
+       
+
+          <Link to="plastic">Plastic</Link>
+        </div>
+      </div>
+      <div className="right-side">
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+
+export default Routing;

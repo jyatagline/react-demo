@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import UserTable from "./UserTable";
-import GenderSelection from "./GenderSelection";
-import getData from "../../userData";
-
+import getData from "../../API/userData";
+import "./State.css";
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [state, setState] = useState([]);
+  const [page, setPage] = useState(1);
   function getUsers() {
     // getData(setUsers, setState);
     getData(setUsers, setState);
@@ -39,17 +39,21 @@ const Users = () => {
       </p>
       <div style={{ margin: "15px 20px" }}>
         {users.length <= 0 && (
-          <button style={{ padding: "10px 10px" }} onClick={getUsers}>
+          <button
+            className="login-but"
+            style={{ padding: "10px 10px" }}
+            onClick={getUsers}
+          >
             Get Users
           </button>
         )}
       </div>
 
-      {users.length > 0 && (
-        <GenderSelection state={state} setUsers={setUsers} />
-      )}
+      
 
-      {users.length > 0 && <UserTable users={users} />}
+      {users.length > 0 && (
+        <UserTable users={users} page={page} setPage={setPage} />
+      )}
     </div>
   );
 };

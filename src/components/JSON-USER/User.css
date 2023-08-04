@@ -1,3 +1,20 @@
-td,th{
-    padding: 15px;
+td,
+th {
+  padding: 15px;
+}
+
+input[type="text"] {
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+.deleteBut{
+  background-color: lightcoral;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+input[type="radio"]{
+  cursor: pointer;
+  margin: 13px 7px
 }

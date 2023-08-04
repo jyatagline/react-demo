@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,14 +7,21 @@
 .App {
   text-align: center;
 }
-button{
+button {
   cursor: pointer;
+  padding: 7px 13px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
 }
-input[type="radio"]{
-  cursor: pointer;
-  margin: 13px 7px
-}
-input[type='text']{
-  padding: 8px 15px;
-    border-radius: 8px
+
+.login-but {
+  margin: 18px 1px;
+  padding: 10px 48px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
 }

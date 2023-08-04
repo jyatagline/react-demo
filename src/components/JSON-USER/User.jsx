@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./User.css";
-import { sendUserDetails, getUsersData, deleteUserData  } from "../../userData";
+import { sendUserDetails, getUsersData, deleteUserData } from "../../API/userData";
 
 function User() {
   const [user, setUser] = useState("");
@@ -17,24 +17,21 @@ function User() {
   //   }, []);
 
   const addUserData = () => {
- 
     // console.log(user, gender);
     let newUser = {
       name: user,
       gender: gender,
     };
-    if(user.length>0 && gender.length>0) {
-      sendUserDetails(newUser, setUsers,setUser);
+    if (user.length > 1 && gender.length > 1) {
+      sendUserDetails(newUser, setUsers, setUser, setGender);
+      setUser(" ");
+      setGender("");
     }
-     
-      // setUser(' ')
-     
-      else{
-        alert("please fill proper details")
-      }
-  
-      
-    
+
+    // setUser(' ')
+    else {
+      alert("please fill proper details");
+    }
   };
 
   //   const getUsers = () => {
@@ -53,37 +50,39 @@ function User() {
       <input
         value={user}
         type="text"
-        placeholder="Enter User Name" 
+        placeholder="Enter User Name"
         onChange={(event) => {
           setUser(event.target.value);
           console.log(setUser);
-         
-
         }}
       />
       <div>
         <input
           type="radio"
-          name={gender}
+          name="gender"
           value="male"
           onChange={(event) => {
             setGender(event.target.value);
-            console.log(setGender)
+            console.log(setGender);
           }}
         />
-        Male
+        male
         <input
           type="radio"
-          name={gender}
+          name="gender"
           value="female"
           onChange={(event) => {
             setGender(event.target.value);
           }}
         />
-        Female
+        female
       </div>
 
-      <button onClick={addUserData} style={{ margin: "15px 0px" }}>
+      <button
+        className="login-but"
+        onClick={addUserData}
+        style={{ margin: "15px 0px" }}
+      >
         Add User
       </button>
 
@@ -111,6 +110,7 @@ function User() {
                     <td>{user.gender}</td>
                     <td>
                       <button
+                        className="deleteBut"
                         onClick={() => {
                           deleteUser(user.id);
                         }}

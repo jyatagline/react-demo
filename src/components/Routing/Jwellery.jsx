@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Routing.css";
-function Electronics(props) {
-  const [electronicdata, setElectronicData] = useState([]);
+import './Routing.css'
+function Jwellery(props) {
+  const [jwellerydata, setJwelleryData] = useState([]);
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products/category/electronics")
+      .get("https://fakestoreapi.com/products/category/jewelery")
       .then((res) => {
-        setElectronicData(res.data);
+        setJwelleryData(res.data);
       });
   }, []);
   return (
     <div>
-      <h2 style={{ padding: "16px 0px" }}>Electronic Product</h2>
+      <h2 style={{padding:"16px 0px"}}>Jwellery Product</h2>
       <div className="product-container">
-        <ol>
-          {electronicdata.map((data) => {
+        <ol type="none">
+          {jwellerydata.map((data) => {
             return (
               <Link style={{ color: "blue" }} to={`/productdetails/${data.id}`}>
                 <li style={{ marginTop: "20px" }}>{data.title}</li>
@@ -29,4 +29,4 @@ function Electronics(props) {
   );
 }
 
-export default Electronics;
+export default Jwellery;
